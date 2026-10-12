@@ -1,0 +1,19 @@
+/* Art Deco: black, gold, symmetry, stepped corners */
+:root{--bg:#0c0c10;--ink:#efe4c8;--card:#16161c;--accent:#c9a24b;--display:'Poiret One',sans-serif;--body:'Josefin Sans',sans-serif;--quote-font:'Limelight',serif;--gap:20px;--h1-weight:400}
+body{background:radial-gradient(ellipse at 50% -10%,#1d1a12,#0c0c10 60%)}
+.topbar{color:var(--accent)}
+.masthead{text-align:center;display:flex;flex-direction:column;align-items:center}
+.masthead h1{font-family:'Limelight',serif;color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+.masthead .eyebrow{color:#efe4c8}
+.masthead p.lede{margin-inline:auto}
+.masthead .rays{width:min(520px,80vw);margin-bottom:1rem}
+.card{border:1px solid var(--accent);clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px)}
+.photo figcaption,.photo .cap{border-top:1px solid var(--accent);letter-spacing:.06em;text-transform:uppercase;font-size:.72rem}
+.swatch{--sw-ink:#fff}
+.fact{background:linear-gradient(160deg,#1d1a12,#16161c);}
+.fact h2{color:var(--accent);font-family:'Limelight',serif}
+.quote{background:#14284b;color:var(--ink)}
+.pattern .cap{color:var(--accent);background:#0c0c10}
+.font{color:var(--ink)}
+.foot{border-color:var(--accent);color:var(--accent)}
+.toast{background:var(--accent);color:#0c0c10}

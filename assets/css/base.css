@@ -1,0 +1,70 @@
+/* Shared layout for all three mood boards. Themes override the custom properties. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.5}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:.5rem 1rem;z-index:10}
+.skip:focus{left:0}
+
+.topbar{display:flex;justify-content:space-between;gap:1rem;padding:1rem clamp(1rem,4vw,3rem);font-family:var(--display);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase}
+.topbar a{text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+
+.masthead{padding:clamp(2rem,6vw,5rem) clamp(1rem,4vw,3rem) clamp(1.5rem,4vw,3rem)}
+.masthead .eyebrow{font-family:var(--display);letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;color:var(--accent);margin:0 0 .75rem}
+.masthead h1{font-family:var(--display);font-weight:var(--h1-weight,400);font-size:clamp(2.4rem,8vw,6rem);line-height:1;margin:0 0 1rem}
+.masthead p.lede{max-width:46ch;font-size:clamp(1rem,2vw,1.2rem);margin:0}
+
+.board{column-width:260px;column-gap:var(--gap,18px);padding:0 clamp(1rem,4vw,3rem) 3rem;max-width:1600px;margin:0 auto}
+.card{break-inside:avoid;margin:0 0 var(--gap,18px);position:relative;overflow:hidden;background:var(--card)}
+
+/* photos */
+.photo{padding:0;border:0;width:100%;display:block;cursor:zoom-in;background:var(--card);color:inherit;font:inherit;text-align:left}
+.photo img{width:100%;height:auto;transition:transform .5s ease}
+.photo:hover img{transform:scale(1.03)}
+.photo figcaption,.photo .cap{display:block;padding:.6rem .8rem .75rem;font-size:.82rem;line-height:1.35}
+.card.photo-card{padding:0}
+
+/* swatches */
+.swatch{border:0;width:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:1rem;cursor:copy;font:inherit;text-align:left;color:var(--sw-ink,#fff);background:var(--sw);min-height:var(--h,140px)}
+.swatch b{font-family:var(--display);font-size:1.05rem;font-weight:600;letter-spacing:.04em}
+.swatch span{font-size:.8rem;opacity:.85;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.swatch.s1{--h:110px}.swatch.s2{--h:170px}.swatch.s3{--h:230px}
+
+/* fonts */
+.font{padding:1.1rem 1.2rem 1.2rem}
+.font .aa{font-size:clamp(3.5rem,9vw,5.5rem);line-height:1;margin:0 0 .4rem;font-family:var(--ff)}
+.font .name{font-family:var(--ff);font-size:1.25rem;margin:0}
+.font .meta{font-size:.78rem;opacity:.75;margin:.2rem 0 .8rem;letter-spacing:.04em}
+.font .sample{font-family:var(--ff);font-size:1.05rem;line-height:1.35;margin:0}
+
+/* patterns / quotes / facts */
+.pattern svg{width:100%;height:auto}
+.pattern .cap{display:block;padding:.5rem .8rem;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase}
+.quote{padding:1.6rem 1.4rem}
+.quote blockquote{margin:0;font-family:var(--quote-font,var(--display));font-size:clamp(1.25rem,2.2vw,1.6rem);line-height:1.25}
+.quote cite{display:block;margin-top:1rem;font-style:normal;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.fact{padding:1.3rem 1.3rem 1.4rem}
+.fact h2{font-family:var(--display);font-size:1.2rem;margin:0 0 .6rem}
+.fact dl{margin:0;font-size:.88rem}
+.fact dt{font-weight:700;margin-top:.55rem;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.fact dd{margin:0}
+
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding:2rem clamp(1rem,4vw,3rem) 3rem;font-size:.85rem;border-top:1px solid color-mix(in srgb,var(--ink) 25%,transparent)}
+.foot a{margin-right:1rem}
+
+/* lightbox */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:94vh;color:#fff;overflow:visible}
+dialog.lb::backdrop{background:rgba(10,10,10,.88)}
+dialog.lb img{max-height:78vh;width:auto;max-width:100%;margin:0 auto;background:#111}
+dialog.lb p{margin:.8rem 0 0;text-align:center;font-size:.9rem}
+dialog.lb small{display:block;opacity:.7;margin-top:.2rem}
+dialog.lb button{position:absolute;top:-2.4rem;right:0;background:none;border:1px solid #fff;color:#fff;padding:.25rem .8rem;cursor:pointer;font:inherit}
+
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,2rem);background:var(--ink);color:var(--bg);padding:.6rem 1.1rem;font-size:.85rem;opacity:0;pointer-events:none;transition:.25s;z-index:20}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:520px){.board{column-width:150px;--gap:10px}}

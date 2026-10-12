@@ -1,0 +1,16 @@
+/* Mid-Century Modern: plywood curves, primary-ish color, playful */
+:root{--bg:#f4eee0;--ink:#2b2118;--card:#fffaf0;--accent:#e2701f;--display:'Jost',sans-serif;--body:'Jost',sans-serif;--quote-font:'DM Serif Display',serif;--gap:18px;--h1-weight:700}
+.masthead h1{letter-spacing:-.02em;text-transform:lowercase}
+.masthead h1 .dot{color:var(--accent)}
+.masthead{position:relative}
+.masthead .dots{position:absolute;right:clamp(1rem,5vw,4rem);top:clamp(1rem,4vw,3rem);display:flex;gap:10px}
+.masthead .dots i{width:clamp(18px,3vw,34px);aspect-ratio:1;border-radius:50%;display:block}
+.card{border-radius:22px;box-shadow:0 2px 0 rgba(43,33,24,.12)}
+.photo figcaption,.photo .cap{font-weight:500}
+.swatch{border-radius:22px}
+.fact{background:#1f7c84;color:#fffaf0;border-radius:22px}
+.fact h2{font-family:'DM Serif Display',serif;font-weight:400}
+.quote{background:#d9a21b;color:#2b2118}
+.quote.alt{background:#c8402b;color:#fffaf0}
+.pattern .cap{background:#2b2118;color:#fffaf0}
+.font .name{font-weight:700}

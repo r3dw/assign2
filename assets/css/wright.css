@@ -1,0 +1,14 @@
+/* Prairie School: low horizontals, brick, limestone, oak */
+:root{--bg:#e7dcc6;--ink:#2a1c13;--card:#f3ecdc;--accent:#9c3b25;--display:'Josefin Sans',sans-serif;--body:'Libre Baskerville',Georgia,serif;--quote-font:'Libre Baskerville',Georgia,serif;--gap:16px;--h1-weight:300}
+.masthead{border-top:14px solid var(--accent);border-bottom:3px solid #2a1c13;position:relative;background:linear-gradient(#e7dcc6,#e7dcc6)}
+.masthead::after{content:"";display:block;height:6px;width:40%;background:#2a1c13;margin-top:2rem}
+.masthead h1{text-transform:uppercase;letter-spacing:.06em}
+.card{border:2px solid #2a1c13;border-radius:0}
+.photo figcaption,.photo .cap{border-top:2px solid #2a1c13;font-family:var(--display);letter-spacing:.04em}
+.fact{background:#2a1c13;color:#f3ecdc}
+.fact h2{color:#d9a441}
+.quote{background:var(--accent);color:#f6ead4;border-color:var(--accent)}
+.quote.alt{background:#d9a441;color:#2a1c13;border-color:#2a1c13}
+.pattern .cap{background:#2a1c13;color:#f3ecdc}
+.font{background:#f3ecdc}
+.swatch{border:0}
