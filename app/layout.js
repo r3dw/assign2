@@ -8,6 +8,11 @@ export const metadata = {
   title: 'Open House Chicago 2026 · An Art Deco festival guide',
   description:
     'A student redesign of the Open House Chicago festival guide, built in the Art Deco style. October 17–18, 2026.',
+  // One shared favicon set, served from /public, used by every page on the site.
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }, { url: '/favicon.ico', sizes: '48x48' }],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export const viewport = { width: 'device-width', initialScale: 1 };
