@@ -36,3 +36,36 @@ header.hub{padding:clamp(2.5rem,8vw,6rem) clamp(1.25rem,5vw,4rem) clamp(1.5rem,4
 
 footer.hubfoot{max-width:1500px;margin:0 auto;padding:1.5rem clamp(1.25rem,5vw,4rem) 3rem;font-size:.85rem;color:#6a5f52;display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between;border-top:1px solid #cfc6b4}
 @media (prefers-reduced-motion:reduce){.tile{transition:none}.tile:hover{transform:none}}
+
+/* design systems row */
+.systems{max-width:1500px;margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem) 4rem}
+.systems h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 .4rem;letter-spacing:-.01em}
+.sys-lede{margin:0 0 1.5rem;max-width:56ch;color:#4a4036}
+.sys-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(1rem,2.5vw,2rem)}
+.sys{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.25rem;text-decoration:none;min-height:88px;transition:transform .2s ease}
+.sys:hover,.sys:focus-visible{transform:translateY(-3px)}
+.sys .aa{font-size:2.2rem;line-height:1}
+.sys .dots{display:flex;gap:5px}
+.sys .dots i{width:16px;height:16px;border-radius:50%;display:block}
+.sys .nm{flex:1;font-weight:600;line-height:1.2}
+.sys .nm small{display:block;font-weight:400;font-size:.78rem;opacity:.75;margin-top:.15rem}
+.sys .arr{font-size:1.3rem}
+.s-wright{background:#f3ecdc;color:#2a1c13;border:3px solid #2a1c13;font-family:'Josefin Sans',sans-serif}
+.s-wright .aa{font-weight:300}
+.s-deco{background:#0c0c10;color:#efe4c8;border:1px solid #c9a24b;outline:1px solid #c9a24b;outline-offset:-5px;font-family:'Josefin Sans',sans-serif}
+.s-deco .aa{font-family:'Limelight',serif;color:#c9a24b}
+.s-eames{background:#fffaf0;color:#2b2118;border-radius:22px;font-family:'Jost',sans-serif}
+.s-eames .aa{font-weight:700}
+@media (prefers-reduced-motion:reduce){.sys{transition:none}.sys:hover{transform:none}}
+
+/* your site */
+.yoursite{max-width:1500px;margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem) 4rem}
+.yoursite h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 1rem;letter-spacing:-.01em}
+.ys-card{display:flex;align-items:center;gap:clamp(.9rem,2.5vw,1.5rem);padding:.9rem clamp(.9rem,2.5vw,1.5rem) .9rem .9rem;text-decoration:none;background:#0c0c10;color:#efe4c8;border:1px solid #c9a24b;outline:1px solid #c9a24b;outline-offset:-5px;font-family:'Josefin Sans',sans-serif;flex-wrap:wrap;transition:transform .2s ease}
+.ys-card:hover,.ys-card:focus-visible{transform:translateY(-3px)}
+.ys-card img{width:64px;height:86px;object-fit:cover;border:1px solid #c9a24b}
+.ys-txt{flex:1 1 220px;display:flex;flex-direction:column;gap:.15rem}
+.ys-txt strong{font-family:'Limelight',serif;font-weight:400;color:#c9a24b;text-transform:uppercase;letter-spacing:.05em;font-size:clamp(1.2rem,3vw,1.7rem);line-height:1.15}
+.ys-txt small{font-size:.9rem;opacity:.85}
+.ys-go{background:#c9a24b;color:#0c0c10;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;padding:.8rem 1.2rem}
+@media (prefers-reduced-motion:reduce){.ys-card{transition:none}.ys-card:hover{transform:none}}

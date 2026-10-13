@@ -1,0 +1,36 @@
+/* Gilded Age of Speed — Art Deco. Black + gold, 1px gold rules, chamfered cards, glow instead of shadow. */
+:root{
+  --bg:#0C0C10;--surface:#16161C;--text:#EFE4C8;--muted:#A9A18A;--border:#C9A24B;
+  --accent:#C9A24B;--accent-ink:#0C0C10;--accent-hover:#DDB95F;--accent-press:#A98532;
+  --error:#F0707F;--success:#4FBF9F;--focus:#EFE4C8;--scrim:rgba(0,0,0,.8);
+  --f-display:'Limelight',serif;--f-heading:'Josefin Sans',sans-serif;--f-body:'Josefin Sans',sans-serif;--f-label:'Josefin Sans',sans-serif;
+  --fw-display:400;--fw-heading:600;--fw-label:600;
+  --fs-display:2.5rem;--fs-heading:1.4rem;--fs-body:1.05rem;--fs-label:.75rem;
+  --tt-display:uppercase;--tt-heading:uppercase;--tt-btn:uppercase;
+  --ls-display:.06em;--ls-heading:.1em;--ls-label:.2em;--ls-btn:.16em;
+  --r-sm:0;--r-md:0;--r-lg:0;--r-btn:0;--r-input:0;--r-chip:0;--r-check:0;--r-switch:0;--r-knob:0;
+  --bw:1px;--shadow:none;--shadow-lg:0 0 32px rgba(201,162,75,.28);
+}
+body{background:radial-gradient(ellipse at 50% -10%,#1d1a12,#0C0C10 60%) fixed}
+.ds-head h1{color:var(--accent)}
+.ds-head{text-align:center}.ds-head p.lede.lede{margin-inline:auto}
+.sec{clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px)}
+.sec>h2,.sub{color:var(--accent)}
+.btn{border-color:var(--accent)}
+.btn:hover,.btn.is-hover{background:var(--accent);color:var(--accent-ink)}
+.btn:active,.btn.is-pressed{background:var(--accent-press);color:var(--accent-ink);box-shadow:inset 0 0 0 2px var(--bg)}
+.btn-primary{box-shadow:inset 0 0 0 2px var(--bg),inset 0 0 0 3px var(--accent-ink)}
+.btn[aria-pressed="true"],.btn.is-selected{background:var(--surface);color:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--surface),inset 0 0 0 3px var(--accent)}
+.fchip{border-color:var(--accent)}
+.fchip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.choice input,.switch .track,.shape{border-color:var(--accent)}
+.choice input:checked,.switch[aria-checked="true"] .track{background:var(--accent)}
+.choice input[type=checkbox]:checked::after{border-color:var(--accent-ink)}
+.choice input[type=radio]:checked::after{background:var(--accent-ink)}
+.switch .track::after{background:var(--accent)}
+.switch[aria-checked="true"] .track::after{background:var(--accent-ink)}
+.tab[aria-selected="true"]{color:var(--accent)}
+.badge{border-color:var(--accent);color:var(--accent)}.badge.solid{background:var(--accent);color:var(--accent-ink)}
+.panel,dialog.modal{border-color:var(--accent)}
+.ds-top a{color:var(--accent)}
+.sec>h2 .n{background:var(--accent);color:var(--accent-ink)}

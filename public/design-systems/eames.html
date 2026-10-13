@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plywood &amp; Plastic · Design System | Mood Boards</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="UI library for the Plywood &amp; Plastic mood board: color roles, type roles, spacing, components and states.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/ds-eames.css">
+<link rel="stylesheet" href="../assets/css/ds.css">
+<script src="../assets/js/ds.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the system</a>
+<nav class="ds-top" aria-label="Site"><a href="../">← All mood boards</a><a href="../eames">View the mood board →</a></nav>
+<header class="ds-head">
+<p class="kicker">Design system · Mid-Century Modern · Charles &amp; Ray Eames</p>
+<h1>Plywood &amp; Plastic</h1>
+<p class="lede">A soft, rounded system: pill buttons, generous radii and a gentle drop shadow. Eames orange (deepened here so white text passes) is reserved for the primary action.</p>
+</header>
+<main id="main" class="ds-grid">
+<div class="ds-col">
+<section class="sec" aria-labelledby="h-color"><h2 id="h-color"><span class="n">1</span>Color roles</h2>
+<div class="swatches"><div class="sw"><div class="chip-c" style="--c:#F4EEE0"></div><b>Background</b><span>#F4EEE0</span></div><div class="sw"><div class="chip-c" style="--c:#FFFAF0"></div><b>Surface</b><span>#FFFAF0</span></div><div class="sw"><div class="chip-c" style="--c:#2B2118"></div><b>Text</b><span>#2B2118</span><span><em>13.6:1</em></span></div><div class="sw"><div class="chip-c" style="--c:#6E5F50"></div><b>Muted</b><span>#6E5F50</span><span><em>5.3:1</em></span></div><div class="sw"><div class="chip-c" style="--c:#8C7C66"></div><b>Border</b><span>#8C7C66</span><span><em>3.5:1</em></span></div><div class="sw"><div class="chip-c" style="--c:#B84F0C"></div><b>Accent</b><span>#B84F0C</span><span><em>4.4:1</em></span></div></div>
+<p class="sub">Feedback roles</p>
+<div class="swatches four"><div class="sw"><div class="chip-c" style="--c:#FFFFFF"></div><b>Accent ink</b><span>#FFFFFF</span><span><em>5.0:1</em></span><span>on accent</span></div><div class="sw"><div class="chip-c" style="--c:#176168"></div><b>Focus</b><span>#176168</span><span><em>6.2:1</em></span><span>on bg</span></div><div class="sw"><div class="chip-c" style="--c:#B83222"></div><b>Error</b><span>#B83222</span><span><em>5.7:1</em></span><span>on surface</span></div><div class="sw"><div class="chip-c" style="--c:#1B6F77"></div><b>Success</b><span>#1B6F77</span><span><em>5.6:1</em></span><span>on surface</span></div></div>
+<p class="note">Bold figures are WCAG contrast ratios. Text and muted text pass 4.5:1 on the background; border, accent, focus and button labels pass 3:1 or better.</p>
+</section>
+<section class="sec" aria-labelledby="h-type"><h2 id="h-type"><span class="n">2</span>Type roles</h2>
+<div class="type-row"><div class="t-display">the LCW</div><div class="meta" data-role="Display">Jost Bold 700 · 48/50 · lowercase</div></div>
+<div class="type-row"><div class="t-heading">Molded Plywood</div><div class="meta" data-role="Heading">Jost SemiBold 600 · 24/29</div></div>
+<div class="type-row"><div class="t-body">Thin veneers, heat-pressed into one continuous curve.</div><div class="meta" data-role="Body">Jost Regular 400 · 17/26</div></div>
+<div class="type-row"><div class="t-label">Designed 1945–46</div><div class="meta" data-role="Label">Jost SemiBold 600 · 12 · caps +12%</div></div>
+</section>
+<section class="sec" aria-labelledby="h-space"><h2 id="h-space"><span class="n">3</span>Spacing and shape</h2>
+<div class="space" aria-hidden="true"><i style="--h:4px"></i><i style="--h:8px"></i><i style="--h:12px"></i><i style="--h:16px"></i><i style="--h:24px"></i><i style="--h:32px"></i></div><div class="space-lbl" aria-hidden="true"><span>4</span><span>8</span><span>12</span><span>16</span><span>24</span><span>32</span></div>
+<p class="sub">Corners, border and shadow</p>
+<div class="shapes"><figure><div class="shape s1"></div><div class="cap">8px</div></figure><figure><div class="shape s2"></div><div class="cap">16px</div></figure><figure><div class="shape s3"></div><div class="cap">24px</div></figure><figure><div class="shape sh"></div><div class="cap">shadow</div></figure></div>
+<p class="note">Spacing scale · 8 / 16 / 24px corners · 1.5px line · soft shadow</p>
+</section>
+</div>
+<div class="ds-col">
+<section class="sec" aria-labelledby="h-comp"><h2 id="h-comp"><span class="n">4</span>Components</h2>
+<div class="comp"><p class="sub">Buttons and link</p><div class="row-flex">
+<button type="button" class="btn btn-primary" data-toggle-pressed aria-pressed="false"><span class="ck" aria-hidden="true">✓</span>Save to board</button>
+<button type="button" class="btn">Skip</button>
+<a class="link" href="#main">See all furniture →</a></div></div>
+<div class="comp"><p class="sub">Text input and select</p><div class="row-flex">
+<div class="field"><label for="q">Search</label><input id="q" class="input" type="search" placeholder="Search the collection"></div>
+<div class="field"><label for="s">Sort</label><select id="s" class="input"><option>Newest first</option><option>A to Z</option></select></div>
+<div class="field"><label for="e">Board name</label><input id="e" class="input" aria-invalid="true" aria-describedby="e-h" value="" placeholder="Name this board"><span id="e-h" class="hint err">! Give the board a name.</span></div></div></div>
+<div class="comp"><p class="sub">Checkbox, radios and toggle</p><div class="row-flex">
+<label class="choice"><input type="checkbox" checked>Show saved only</label>
+<label class="choice"><input type="checkbox" disabled>Unavailable</label>
+<button type="button" class="switch" role="switch" aria-checked="true"><span class="track"></span>Show photo credits</button></div>
+<div class="row-flex" role="radiogroup" aria-label="Artifact kind"><label class="choice"><input type="radio" name="kind-eames" checked>Chairs</label><label class="choice"><input type="radio" name="kind-eames">Tables</label><label class="choice"><input type="radio" name="kind-eames">Storage</label></div></div>
+<div class="comp"><p class="sub">Tabs</p><div class="tabs" role="tablist" aria-label="Board sections"><button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true" tabindex="0" type="button">Furniture</button><button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1" type="button">Colors</button><button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1" type="button">Type</button></div><p class="note" role="tabpanel" id="p0" aria-labelledby="t0">Showing furniture from the board.</p><p class="note" role="tabpanel" id="p1" aria-labelledby="t1" hidden>Showing colors from the board.</p><p class="note" role="tabpanel" id="p2" aria-labelledby="t2" hidden>Showing type from the board.</p></div>
+<div class="comp"><p class="sub">Filter chips (filters the list below)</p><div class="chips" data-chips role="group" aria-label="Filter"><button type="button" class="fchip" data-filter="all" aria-pressed="true">All</button><button type="button" class="fchip" data-filter="chairs" aria-pressed="false">Chairs</button><button type="button" class="fchip" data-filter="storage" aria-pressed="false">Storage</button></div></div>
+<div class="comp"><p class="sub">List rows</p><div class="list"><div class="li" data-row="chairs"><span>LCW lounge chair</span><span>1945</span></div><div class="li" data-row="chairs"><span>Molded plastic armchair</span><span>1950</span></div><div class="li" data-row="storage"><span>Storage unit ESU</span><span>1949</span></div></div></div>
+<div class="comp"><p class="sub">Card, badge and detail panel</p><div class="row-flex" style="align-items:stretch">
+<div style="flex:1 1 280px"><div class="item"><img src="../img/eames-lcw-honolulu.jpg" alt="" width="76" height="76" loading="lazy"><div class="body"><h3>LCW — Lounge Chair Wood</h3><p>Molded plywood · 1945–46</p><span class="badge solid">New</span></div></div><div style="height:.75rem"></div><div class="item"><img src="../img/eames-esu.jpg" alt="" width="76" height="76" loading="lazy"><div class="body"><h3>Eames Storage Unit</h3><p>ESU 421-C · 1949–50</p><span class="badge ok">Saved</span></div></div></div>
+<div style="flex:1 1 240px"><div class="panel" id="panel"><button type="button" class="close" data-panel-close aria-label="Close detail">×</button><h3>Eames Storage Unit</h3><p>A steel frame with colored panels and plywood doors.</p><button type="button" class="btn btn-primary">Save to board</button></div></div></div>
+<div class="row-flex" style="margin-top:.75rem"><button type="button" class="btn" data-panel>Show or hide the detail panel</button><button type="button" class="btn" data-open>Open the modal</button></div></div>
+</section>
+<section class="sec" aria-labelledby="h-ctl"><h2 id="h-ctl"><span class="n">5</span>Control states</h2>
+<div class="states"><div><button type="button" class="btn btn-primary " tabindex="-1">Save to board</button><div class="cap">Rest</div></div><div><button type="button" class="btn btn-primary is-hover" tabindex="-1">Save to board</button><div class="cap">Hover</div></div><div><button type="button" class="btn btn-primary is-focus" tabindex="-1">Save to board</button><div class="cap">Focus</div></div><div><button type="button" class="btn btn-primary is-pressed" tabindex="-1">Save to board</button><div class="cap">Pressed</div></div><div><button type="button" class="btn is-selected" tabindex="-1">✓ Saved</button><div class="cap">Selected</div></div><div><button type="button" class="btn is-disabled" disabled tabindex="-1">Save to board</button><div class="cap">Disabled</div></div></div>
+<p class="note">Hover inverts the control. Focus adds a 3px ring offset from the edge. Pressed nudges down one pixel. Selected swaps the fill and adds a check, so it never relies on color alone.</p></section>
+<section class="sec" aria-labelledby="h-ui"><h2 id="h-ui"><span class="n">6</span>UI states</h2>
+<div class="ui-states"><div class="ui-state"><span class="ico empty" aria-hidden="true"></span><b>No furniture yet</b><small>Save a piece from the board.</small></div><div class="ui-state" role="status"><span class="ico load" aria-hidden="true"></span><b>Loading…</b><small>Fetching furniture.</small></div><div class="ui-state err" role="alert"><span class="ico error" aria-hidden="true">!</span><b>Couldn’t load</b><small>Check the connection.</small></div><div class="ui-state ok" role="status"><span class="ico success" aria-hidden="true">✓</span><b>Saved</b><small>Added to your board.</small></div></div>
+<p class="note">Every state pairs an icon with a short message. Error and success also change the border.</p></section>
+</div>
+</main>
+<footer class="ds-foot"><span>Plywood &amp; Plastic · Charles &amp; Ray Eames</span><span><a href="../credits">Photo credits</a></span></footer>
+<dialog class="modal" id="modal" aria-labelledby="mt"><h3 id="mt">Remove from board?</h3><p>The photo stays in the collection; only this board forgets it.</p>
+<div class="actions"><button type="button" class="btn" data-close>Cancel</button><button type="button" class="btn btn-primary" data-close>Remove</button></div></dialog>
+</body>
+</html>

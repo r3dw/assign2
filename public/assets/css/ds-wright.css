@@ -1,0 +1,16 @@
+/* Prairie Lines — Wright. Flat, horizontal, 2px dark lines, no shadows, square corners. */
+:root{
+  --bg:#E7DCC6;--surface:#F3ECDC;--text:#2A1C13;--muted:#6B5646;--border:#2A1C13;
+  --accent:#9C3B25;--accent-ink:#F6EAD4;--accent-hover:#832F1C;--accent-press:#6A2515;
+  --error:#7A1F12;--success:#2F6B58;--focus:#2A1C13;--scrim:rgba(42,28,19,.7);
+  --f-display:'Josefin Sans',sans-serif;--f-heading:'Josefin Sans',sans-serif;--f-body:'Libre Baskerville',Georgia,serif;--f-label:'Josefin Sans',sans-serif;
+  --fw-display:300;--fw-heading:600;--fw-label:600;
+  --fs-display:2.75rem;--fs-heading:1.5rem;--fs-body:1rem;--fs-label:.75rem;
+  --tt-display:uppercase;--tt-heading:none;--tt-btn:uppercase;
+  --ls-display:.06em;--ls-heading:.01em;--ls-label:.16em;--ls-btn:.12em;
+  --r-sm:0;--r-md:0;--r-lg:0;--r-btn:0;--r-input:0;--r-chip:0;--r-check:0;--r-switch:0;--r-knob:0;
+  --bw:2px;--shadow:none;--shadow-lg:none;
+}
+.ds-head{border-top:14px solid var(--accent)}
+.sec{border-width:2px}
+.panel,dialog.modal{border-width:3px}
