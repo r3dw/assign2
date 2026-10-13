@@ -99,6 +99,14 @@ Each design system is a UI library built in its mood board's style, following th
 
 Note: a plain local Python server doesn't support clean URLs, so `/design-systems/wright` returned a 404 there. The `.html` form works locally, and the clean form is handled by `vercel.json` when deployed.
 
+### Update: Eames system follows the broadened board
+After the Eames board became mostly Mid-Century Modern (section 5), I asked for its design-system page to match. Only the content changed; the tokens (palette, type, radii, shadow) already matched the board's swatches.
+- **Header and text samples:** the kicker and footer now read "Mid-Century Modern · Eames & beyond", and the intro says it is built for the Mid-Century board. The type samples were rewritten ("mid-century" as display, "Furniture & Lighting" as heading, a body line about curves, materials and color, and "Mid-1940s to 1960s" as the label).
+- **Components use the wider collection:** the example cards are the PH Artichoke Lamp and the Marshmallow Sofa, the detail panel is the sofa, the list rows are an Eames LCW chair, a Noguchi coffee table and the sofa, the radios are Seating / Tables / Lighting, the tabs are Furniture / Lighting / Houses, and the filter chips are All / Eames / Beyond Eames.
+- **A thumbnail choice:** I first used the Noguchi table for a card, but its wide photo cropped to just the table's base in a 76px square, so I switched to the Artichoke lamp, whose tall photo crops cleanly.
+- **A path bug avoided:** my generator for these pages still wrote to the old project root from before the move into `public/`. I fixed the path before running it, so no stray folder was created. The hub's design-system tile label became "Mid-Century · Eames & beyond".
+- **Verification:** the 51-check design-system suite passes for all three systems, the page has no horizontal overflow at desktop and phone width, and both thumbnails load. The Wright and Deco design systems, all three boards, the credits page and `app/` are unchanged (byte-identical checks and a clean git status).
+
 ## 7. The site: Open House Chicago (Art Deco)
 
 ### Brief
@@ -166,7 +174,6 @@ After I pushed the hero and thumbnail changes, the Vercel site still showed the 
 - **Vercel clean URLs (resolved).** Confirmed on the live site after deployment: `/`, `/wright`, `/deco`, `/eames`, `/credits`, `/design-systems/deco` and `/open-house` all load without `.html`.
 - **Tech stack.** The assignment PDF's tech stack lists Next.js and Tailwind. The mood boards and design systems are plain static HTML, and only the site is Next.js, with no Tailwind (per the instruction to use only HTML, CSS and Next.js). Check with your instructor whether this satisfies the requirement.
 - **Mid-Century dates written from memory.** The fact card and captions give dates for the Eames LCW (1945–46), Eames House (1949), Storage Unit (1949–50) and Lounge Chair (1956), the Noguchi table (1940s), Nelson's Marshmallow sofa (1956), the Tulip chair (1956), the Egg chair (1958), the PH Artichoke lamp (1958) and the Stahl House (1960). Please verify them. The Ball clock's 1949 date comes from the Brooklyn Museum's description.
-- **The Eames design-system page was not changed.** Its header still reads "Mid-Century Modern · Charles & Ray Eames" and it still uses the Storage Unit photo, which is fine but no longer matches the board's new kicker.
 - **Facts written from memory.** Please verify the Robie House facts (design 1908, completed 1910, UNESCO listing 2019, owned by the University of Chicago), the two Wright quotes' original sources, and the Chicago building dates on the Deco board.
 - **A blank-card artifact never fully confirmed.** Some Eames photo cards showed blank in an early screenshot. The files were verified intact and served correctly, but I did not see the lower half of that page rendered in a later screenshot.
 - **The sample is small.** Only 16 of 200+ sites, 10 of 28 neighborhoods, and 3 events are shown. The "View all" buttons go to the official site.
