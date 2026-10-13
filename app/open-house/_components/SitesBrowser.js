@@ -122,7 +122,7 @@ export default function SitesBrowser() {
               return (
                 <li key={s.id} className="card site-card">
                   <div className="media">
-                    {s.photo ? <img src={s.photo} alt="" width="640" height="480" loading="lazy" /> : <DecoTile index={i} uid={`s${i}`} />}
+                    <DecoTile index={i} uid={`s${i}`} />
                     {s.day && <span className="badge solid media-badge">{s.day}</span>}
                   </div>
                   <div className="site-body">
