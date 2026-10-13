@@ -28,8 +28,8 @@ export default function Hero() {
           </dl>
         </div>
         <figure className="hero-photo">
-          <img src="/img/deco-carbide-tower.jpg" width="960" height="1280" alt="The dark green and gold Carbide and Carbon Building rising above Michigan Avenue" />
-          <figcaption>Carbide and Carbon Building, Chicago (1929) · Photo: w_lemay · CC BY-SA 2.0</figcaption>
+          <img src="/img/deco-chrysler-elevator.jpg" width="960" height="1600" alt="An inlaid-wood elevator door at the Chrysler Building in New York, with a fan-shaped Art Deco motif in gold and amber" />
+          <figcaption>Chrysler Building elevator door, New York (1930) · Photo: SiefkinDR · CC BY-SA 4.0</figcaption>
         </figure>
       </div>
     </section>
