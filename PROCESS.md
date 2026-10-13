@@ -7,7 +7,7 @@ A draft record of how the project was built with Claude Code, including the twea
 | Piece | Where | Notes |
 |---|---|---|
 | Hub | `public/index.html` | Links to the three mood boards, the three design systems and the site |
-| Mood boards | `public/wright.html`, `deco.html`, `eames.html` | 27, 29 and 27 artifacts (the brief asks for 25–30) |
+| Mood boards | `public/wright.html`, `deco.html`, `eames.html` | 27, 29 and 28 artifacts (the brief asks for 25–30) |
 | Design systems | `public/design-systems/*.html` | One UI library per mood board, following the six-part outline in the assignment PDF |
 | Site | `app/open-house/` (Next.js) | An Art Deco festival guide based on openhousechicago.org |
 | Credits | `public/credits.html` | Author and license for every photo |
@@ -54,7 +54,21 @@ I asked to replace the gilded Prometheus photo with an interior of the Chicago C
 - Most photos in that category are exteriors. The one real interior, a gold-lit auditorium, was used (credit: Zesmeralda, CC BY-SA 2.0).
 - Only that one card changed. The page diff showed a single changed line, and the other boards stayed identical.
 
-## 5. Design systems
+## 5. Tweak: Broaden the Eames board to Mid-Century Modern
+
+I asked to broaden the third board from "Eames" to Mid-Century Modern as a whole, while keeping the focus on the iconic Eames chairs. The website and the other two boards were off limits, but the hub needed updating.
+
+- **Kept the board's name, "Plywood & Plastic."** It still describes the Eames chairs (molded plywood, plastic shells), and renaming it would have changed the footer links on the Wright and Deco boards, which are meant to stay untouched. The kicker became "Mid-Century Modern · The Eames chair" and the intro text was rewritten.
+- **Chairs lead.** Eight of the 13 photos are Eames chairs: Lounge Chair and Ottoman, LCW, DCW, molded plastic shell armchairs, wire chair on an Eiffel base, La Chaise, plus two new ones, the fiberglass rocking chair and the Aluminum Group.
+- **Five photos give the wider movement:** the Saarinen Tulip chair, the Bertoia Diamond Chair, the Jacobsen Egg chair, the Stahl House (Case Study House No. 22) and the Eames House. I searched Commons for Saarinen, Bertoia, Wegner, Jacobsen, Noguchi, Nelson and Case Study houses, previewed about 20 candidates on a contact sheet, and chose the cleanest, most recognizable shots with clear licenses. Others looked good but didn't make it (the Wegner Wishbone chair, the Womb chair, the Noguchi table, the Nelson Marshmallow sofa, the TWA Flight Center).
+- **Removed:** the Eames Storage Unit, the plywood coffee table, the Elephant toy, a second Eames House view, and a second red LCW. They were non-chair items or near-duplicates. I deleted the unused image files, but kept the Storage Unit file because the Eames design-system page still uses it.
+- **Swatches, fonts, patterns and quotes stayed.** The "Eames House" fact card became a broader "Mid-Century Modern" card (era, Eames chair dates, other designers, houses).
+- **Result:** 28 artifacts (13 photos, 7 swatches, 3 patterns, 2 fonts, 2 quotes, 1 fact card). The credits page gained six photos and lost four.
+- **Hub:** the board 03 tile has the new kicker and text, a new count (28 artifacts), a collage that now includes the Egg chair, and an updated page description. I also trimmed one repetitive phrase after seeing it on screen ("Mid-Century Modern… Mid-century modern at its most sociable").
+
+**Verification:** all 28 cards render with every image loaded at five widths (1440, 1024, 768, 390 and 320px), with no horizontal overflow. At desktop and phone width, the lightbox opens with caption and credit and closes with Escape, and a swatch click copies its hex. The hub tile links to the board at desktop and phone width. The Wright and Deco boards are byte-identical to before, `app/` has no changes in git, and the full 124-check website suite still passes. Two test hiccups turned out not to be site bugs: the swatch check ran before the asynchronous clipboard call finished, and a first-load 404 from the local test server did not reproduce.
+
+## 6. Design systems
 
 ### Brief
 Each design system is a UI library built in its mood board's style, following the PDF outline: (1) color roles with contrast ratios, (2) type roles, (3) spacing and shape, (4) components, (5) control states, (6) UI states.
@@ -83,7 +97,7 @@ Each design system is a UI library built in its mood board's style, following th
 
 Note: a plain local Python server doesn't support clean URLs, so `/design-systems/wright` returned a 404 there. The `.html` form works locally, and the clean form is handled by `vercel.json` when deployed.
 
-## 6. The site: Open House Chicago (Art Deco)
+## 7. The site: Open House Chicago (Art Deco)
 
 ### Brief
 Build a page from the style I picked (Art Deco), based on openhousechicago.org, using only HTML, CSS and Next.js, responsive, and verified at different screen sizes.
@@ -127,7 +141,7 @@ Image changes I asked for once I could see the page:
 
 All of these were rechecked with the full test suite and the dev-mode console check.
 
-## 7. Bug reported after review: hydration error
+## 8. Bug reported after review: hydration error
 
 While reviewing in the dev server I got a React console error: *"A tree hydrated but some attributes of the server rendered HTML didn't match the client properties."*
 
@@ -136,7 +150,7 @@ While reviewing in the dev server I got a React console error: *"A tree hydrated
 - **Fix:** round the coordinates to two decimals in `DecoTile.js` (and `Hero.js`, which used the same math).
 - **Verification:** I added a dev-mode console check, confirmed it reproduces the exact error when the fix is removed, then confirmed it is clean with the fix in place at desktop and phone widths, including after using the filters, saving a card and opening My OHC. The full 124-check production suite still passes.
 
-## 8. Deployment: Vercel stopped updating
+## 9. Deployment: Vercel stopped updating
 
 After I pushed the hero and thumbnail changes, the Vercel site still showed the old images.
 
@@ -145,17 +159,19 @@ After I pushed the hero and thumbnail changes, the Vercel site still showed the 
 - **Fix:** Removed that line from `vercel.json`. The rest of the file (clean URLs and cache headers) is unchanged.
 - **Lesson:** An untested "just in case" setting on a platform I couldn't reach caused the failure, and I had called it harmless. I now treat deployment config changes as untested until a deploy confirms them.
 
-## 9. Known limits and things to double-check
+## 10. Known limits and things to double-check
 
 - **Vercel clean URLs (resolved).** Confirmed on the live site after deployment: `/`, `/wright`, `/deco`, `/eames`, `/credits`, `/design-systems/deco` and `/open-house` all load without `.html`.
 - **Tech stack.** The assignment PDF's tech stack lists Next.js and Tailwind. The mood boards and design systems are plain static HTML, and only the site is Next.js, with no Tailwind (per the instruction to use only HTML, CSS and Next.js). Check with your instructor whether this satisfies the requirement.
+- **Mid-Century dates written from memory.** The new fact card gives dates for the Eames chairs (LCW and DCW 1945–46, fiberglass shell 1950, wire chair 1951, Lounge Chair 1956, Aluminum Group 1958), Bertoia Diamond (1952), Saarinen Tulip (1956), Jacobsen Egg (1958), the Eames House (1949) and the Stahl House (1960). Please verify them.
+- **The Eames design-system page was not changed.** Its header still reads "Mid-Century Modern · Charles & Ray Eames" and it still uses the Storage Unit photo, which is fine but no longer matches the board's new kicker.
 - **Facts written from memory.** Please verify the Robie House facts (design 1908, completed 1910, UNESCO listing 2019, owned by the University of Chicago), the two Wright quotes' original sources, and the Chicago building dates on the Deco board.
 - **A blank-card artifact never fully confirmed.** Some Eames photo cards showed blank in an early screenshot. The files were verified intact and served correctly, but I did not see the lower half of that page rendered in a later screenshot.
 - **The sample is small.** Only 16 of 200+ sites, 10 of 28 neighborhoods, and 3 events are shown. The "View all" buttons go to the official site.
 - **Demo behavior.** Saved items, the newsletter form and filters reset on reload and send nothing anywhere.
 - **Content freshness.** Festival details were copied on October 12, 2026 and may change.
 
-## 10. How the agent was used (draft, edit in your own words)
+## 11. How the agent was used (draft, edit in your own words)
 
 **What I directed:**
 - The three styles and their focus (Wright and the Robie House, Art Deco, Eames).
@@ -175,6 +191,6 @@ After I pushed the hero and thumbnail changes, the Vercel site still showed the 
 - Misread the "Saturday only" labels on the official site, caught by checking the page structure.
 - Ran tests only on the production build, which missed the hydration error. I caught it in dev and the agent fixed it and added a dev-mode check.
 - Initial Eames contrast values didn't meet accessibility thresholds, caught by computing them.
-- Added an untested `outputDirectory` setting to `vercel.json` and called it harmless. It most likely broke Vercel's builds, so the site stopped updating until the line was removed (section 8).
+- Added an untested `outputDirectory` setting to `vercel.json` and called it harmless. It most likely broke Vercel's builds, so the site stopped updating until the line was removed (section 9).
 
 **Where to add your own decisions:** why you chose Art Deco for the site, what people see first on each page, how users know what's clickable, and what each state (empty, loading, error, success) tells them.
