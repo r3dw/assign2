@@ -16,8 +16,10 @@ export default function DecoTile({ index = 0, uid }) {
   const id = `p-${uid}`;
   let art = null;
   if (v === 'sunburst') {
-    const rays = Array.from({ length: 15 }, (_, i) => {
-      const a0 = Math.PI + (i * Math.PI) / 15, a1 = a0 + Math.PI / 30, r = 420;
+    // 15 rays + 14 equal gaps exactly fill the half circle, so rays sit flush on the baseline at both ends.
+    const N = 15, W = Math.PI / (2 * N - 1);
+    const rays = Array.from({ length: N }, (_, i) => {
+      const a0 = Math.PI + i * 2 * W, a1 = a0 + W, r = 420;
       return <path key={i} d={`M160 200 L${r2(160 + r * Math.cos(a0))} ${r2(200 + r * Math.sin(a0))} L${r2(160 + r * Math.cos(a1))} ${r2(200 + r * Math.sin(a1))}Z`} fill={fg} />;
     });
     art = <>{rays}<circle cx="160" cy="200" r="34" fill={bg} stroke={fg} strokeWidth="4" /></>;

@@ -1,6 +1,8 @@
 export default function Hero() {
-  const rays = Array.from({ length: 23 }, (_, i) => {
-    const a0 = Math.PI + (i * Math.PI) / 23, a1 = a0 + Math.PI / 46, r = 700;
+  // 23 rays + 22 equal gaps exactly fill the half circle, so rays sit flush on the baseline at both ends.
+  const N = 23, W = Math.PI / (2 * N - 1);
+  const rays = Array.from({ length: N }, (_, i) => {
+    const a0 = Math.PI + i * 2 * W, a1 = a0 + W, r = 700;
     const f = (v) => Math.round(v * 100) / 100;
     return <path key={i} d={`M400 400 L${f(400 + r * Math.cos(a0))} ${f(400 + r * Math.sin(a0))} L${f(400 + r * Math.cos(a1))} ${f(400 + r * Math.sin(a1))}Z`} />;
   });
