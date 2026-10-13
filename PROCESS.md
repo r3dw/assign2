@@ -95,7 +95,7 @@ I took a real screenshot of the official page and read its text. Structure to fo
 - **Static export.** The project became a Next.js app with `output: 'export'`. The existing static pages moved into `public/` unchanged, and the new page is the route `/open-house`. No server, database or API.
 - **Plain CSS.** No Tailwind. The Deco tokens and components are copied from the Deco design system, so the site and the system match.
 - **Real content, honestly labeled.** Sites, neighborhoods (with counts), itineraries and events come from the official page. Only 16 of the 200+ sites are listed, each linking to its official page. The footer says it's a student redesign, not affiliated with the Chicago Architecture Center, and gives the date the content was copied.
-- **Deco tiles on every site card.** The hero shows the Chrysler Building elevator door, and the Board of Trade photo appears only in that site's details dialog. All 16 site cards use generated Deco pattern tiles. I searched Wikimedia Commons for real photos of each site (search only, nothing downloaded): 8 of 16 had usable photos and 8 had none, so a half-photo grid would have looked uneven. We kept the consistent tiles instead.
+- **Deco tiles on every site card.** The hero shows a brass elevator door from the Carbide and Carbon Building lobby, and the Board of Trade photo appears only in that site's details dialog. All 16 site cards use generated Deco pattern tiles. I searched Wikimedia Commons for real photos of each site (search only, nothing downloaded): 8 of 16 had usable photos and 8 had none, so a half-photo grid would have looked uneven. We kept the consistent tiles instead.
 - **Interactions (all faked, nothing saved):** filter sites by search text, neighborhood and day, "saved only" toggle, details dialog, save sites, itineraries and events into a "My OHC" panel with a live counter, newsletter form with error, sending and success states, and a mobile menu.
 
 ### Data verification (a mistake caught)
@@ -119,12 +119,13 @@ Tested at 320, 390, 768, 1024, 1440 and 1920px. Checks per size: no horizontal o
 | Two failures in my own tests | One looked for the word "Saved", but the browser reports "SAVED" because the CSS uppercases it. The other raced against React removing the dialog title after the dialog closed. Fixed the tests, not the site |
 
 ### Tweaks after review (images)
-Three image changes I asked for once I could see the page:
+Image changes I asked for once I could see the page:
 - **Board of Trade card now uses a Deco tile.** It was the only site card with a real photo, which looked odd next to 15 pattern tiles. It now gets a ruby-and-gold sunburst like the others. I kept its photo in the details dialog, since that isn't part of the card grid.
-- **Hero image changed from the Carbide and Carbon tower to the Chrysler Building elevator door** (`img/deco-chrysler-elevator.jpg`, credit SiefkinDR, CC BY-SA 4.0). I wrote new alt text and a new caption, and checked the crop in screenshots at desktop and phone widths (at tablet width I confirmed the image loads at the same size). The photo is a tall portrait (960×1600), and the existing frame keeps the "EXPRESS" sign and the whole fan motif.
-- **Hub "Your site" thumbnail changed to match the hero.** The collage tile for the Art Deco board on the hub still starts with the Carbide and Carbon tower, since it belongs to the board, not the site. I regenerated the hub and confirmed the three mood boards and the credits page stayed byte-identical.
+- **Hero image, first swap:** from the Carbide and Carbon tower to the Chrysler Building elevator door. I checked the crop in screenshots at desktop and phone widths.
+- **Hero image, second swap (the Chrysler door is in New York):** that photo worked against the site's Chicago focus, so it had to go. I first looked for the C. D. Peacock "Peacock Doors" in the Palmer House Hilton, and found good freely licensed photos (Tony Hisgett, Spock1801, Spatms). I flagged a style problem: the plaque credits Louis Comfort Tiffany, a swirling peacock design in an Art Nouveau style, and the web sources disagreed about the doors' date, so they were not a safe fit for an Art Deco site. I then searched Commons for Chicago Deco elevators and lobbies, and previewed the Carbide and Carbon Building lobby photos plus a Medinah Athletic Club elevator lobby (rejected: its ornament is Italianate, not Deco). The brass elevator door in the Carbide and Carbon lobby (1929) won: it keeps the elevator-door idea, is gold with a Deco pattern, is in Chicago, and is a 3:4 portrait that fits the hero frame with no cropping. Credit: w_lemay, CC BY-SA 2.0. It has new alt text and a caption naming the building.
+- **Hub "Your site" thumbnail changed to match the hero** each time. The collage tile for the Art Deco board on the hub still starts with the Carbide and Carbon tower, since it belongs to the board, not the site. After each regeneration I confirmed the three mood boards stayed byte-identical. The credits page gained the new photo's row.
 
-All three changes were rechecked with the full 124-check suite and the dev-mode console check.
+All of these were rechecked with the full test suite and the dev-mode console check.
 
 ## 7. Bug reported after review: hydration error
 
