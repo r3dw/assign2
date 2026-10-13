@@ -2,7 +2,7 @@
 const PALETTES = [
   ['#0F5D4B', '#C9A24B'], // emerald + gold
   ['#8E1B2E', '#C9A24B'], // ruby + gold
-  ['#14284B', '#C9A24B'], // lapis + gold
+  ['#2B4C8C', '#C9A24B'], // lapis blue + gold (lighter than the page so it stays visible)
   ['#16161C', '#C9A24B'], // onyx + gold
 ];
 const VARIANTS = ['sunburst', 'chevron', 'fans', 'steps'];

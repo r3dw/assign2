@@ -46,6 +46,13 @@ I asked for Chicago images, naming the Carbide and Carbon Building, Chicago Boar
 - **Updated:** the board's intro text and fact card now mention Chicago, with building dates.
 - **Result:** 29 artifacts. The Wright and Eames pages were verified byte-identical (by checksum) before and after.
 
+### Later: the board moves to the lapis background
+Once the site and the Deco design system moved to lapis blue (sections 6 and 7), I asked for the mood board to follow, so the three Deco pieces agree. The Wright board, the Eames board, the credits page, all three design systems and the website were not touched by this step, and I confirmed that with byte-identical checks.
+- **Theme.** The board's page is now `#0F1F3D` with a soft blue glow, and the cards stay near-black (`#16161C`), exactly as on the site. I replaced the old fixed-position gradient with a plain one. Only the Deco theme file changed, because the shared stylesheet also drives the other two boards.
+- **Things that hard-coded the old black.** The sunburst in the header was a black rectangle that would have shown on lapis. I first made it solid lapis, then noticed it sat in a slightly darker box against the page's glow, so it is now transparent with a lapis center disc. The ziggurat pattern was lapis on lapis, so it uses the lighter blue `#2B4C8C` (the same blue as the site's lapis tile). The Midnight Lapis swatch is now `#0F1F3D` to match the site and design system. The fact card's gradient and the (unused) quote card were retuned.
+- **Hub.** The Art Deco board's tile is lapis, and its color strip uses the new lapis value with a thin gold outline so that chip doesn't vanish. While checking this I found an older bug: this tile's palette strip had never displayed at all, because the tile centers its content, which collapsed the strip to zero width. I fixed that too, so all three tiles now show their palettes.
+- **Verification.** 27 of the 28 checks on the board pass at five screen widths, covering image loading, the lightbox, swatch copy and overflow. The one that doesn't is the browser's automatic first-load favicon request, which returns a 404 from the local test server and does not occur on the other pages. The hub tile opens the board at desktop and phone width. The 124-check website suite and the 51-check design-system suite still pass.
+
 ## 4. Tweak: Prometheus → Civic Opera House interior
 
 I asked to replace the gilded Prometheus photo with an interior of the Chicago Civic Opera House.
@@ -107,6 +114,9 @@ After the Eames board became mostly Mid-Century Modern (section 5), I asked for 
 - **A path bug avoided:** my generator for these pages still wrote to the old project root from before the move into `public/`. I fixed the path before running it, so no stray folder was created. The hub's design-system tile label became "Mid-Century · Eames & beyond".
 - **Verification:** the 51-check design-system suite passes for all three systems, the page has no horizontal overflow at desktop and phone width, and both thumbnails load. The Wright and Deco design systems, all three boards, the credits page and `app/` are unchanged (byte-identical checks and a clean git status).
 
+### Update: Deco system moves to the lapis background
+When the site's background changed to lapis (section 7, "Tweak: lapis background"), the Deco design system changed with it, so the system still documents what the site uses. The Background role is now `#0F1F3D`; the Surface role stays near-black `#16161C`. The color-role ratios are computed from the real values, and text on the new background is 12.9:1, muted text 6.4:1 and the gold border and accent 6.8:1, all passing. The page's gradient, its intro text and the hub's Deco design-system tile (including its color dot) were updated too. The Wright and Eames systems are byte-identical, and the 51-check design-system suite still passes.
+
 ## 7. The site: Open House Chicago (Art Deco)
 
 ### Brief
@@ -150,6 +160,16 @@ Image changes I asked for once I could see the page:
 - **Hub "Your site" thumbnail changed to match the hero** each time. The collage tile for the Art Deco board on the hub still starts with the Carbide and Carbon tower, since it belongs to the board, not the site. After each regeneration I confirmed the three mood boards stayed byte-identical. The credits page gained the new photo's row.
 
 All of these were rechecked with the full test suite and the dev-mode console check.
+
+### Tweak: lapis background (mockup first)
+I asked what the site would look like on lapis blue instead of black, and asked for a mockup before any change.
+- **First opinion, with numbers.** I computed contrast before suggesting anything: ivory, gold and muted text all passed on lapis, but a few things needed work (the emerald and ruby bands lose punch, the lapis pattern tile would vanish into a lapis page, and cards separate less). I recommended a deeper blue than the swatch, `#0F1F3D`.
+- **Mockup without touching files.** I served the built site and injected the new colors into the browser only, then made side-by-side before/after screenshots at desktop and phone width. A git check confirmed no project file changed.
+- **My first mockup didn't work.** I had made the cards a lighter blue (`#172C55`). You said they clashed, and looking again, the blue card bodies under the emerald, ruby and gold tiles were busy, and the black "onyx" tile looked out of place.
+- **Second mockup: three alternatives.** Charcoal-black `#16161C` (today's card color), ink navy `#0A1328` and true black `#0C0C10`, shown against the previous blue. All three kept text at 6.3:1 or better. I recommended the charcoal-black: strong separation, the cleanest framing of the tiles, and the least code to change, and you chose it (option A).
+- **Applied.** The page background is `#0F1F3D` with a soft blue glow at the top, and the cards stay `#16161C`. I also changed the top strip and footer to a deeper navy `#0A1530`, the "alt" sections to a translucent navy, the "More from CAC" tiles to a lighter lapis `#244680`, and the lapis pattern tile to `#2B4C8C` so it stays visible. I replaced the old gradient (which used `background-attachment: fixed`) with a plain one.
+- **Hub.** The "Your site" card and the Deco design-system tile are lapis to match the pages they open. The Art Deco mood board's tile stayed black at first, because the board hadn't changed yet; it moved to lapis in the next step (section 3).
+- **Verification.** The 124-check website suite, the 51-check design-system suite and the dev-mode console check all pass, and I looked at screenshots of the real built pages (site, design system, hub) at desktop and phone width. The three mood boards, the credits page and the Wright and Eames design systems are byte-identical to before.
 
 ## 8. Bug reported after review: hydration error
 

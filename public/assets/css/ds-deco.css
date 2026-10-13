@@ -1,6 +1,6 @@
-/* Gilded Age of Speed — Art Deco. Black + gold, 1px gold rules, chamfered cards, glow instead of shadow. */
+/* Gilded Age of Speed — Art Deco. Deep lapis ground, near-black panels, gold, 1px gold rules, chamfered cards, glow instead of shadow. */
 :root{
-  --bg:#0C0C10;--surface:#16161C;--text:#EFE4C8;--muted:#A9A18A;--border:#C9A24B;
+  --bg:#0F1F3D;--surface:#16161C;--text:#EFE4C8;--muted:#A9A18A;--border:#C9A24B;
   --accent:#C9A24B;--accent-ink:#0C0C10;--accent-hover:#DDB95F;--accent-press:#A98532;
   --error:#F0707F;--success:#4FBF9F;--focus:#EFE4C8;--scrim:rgba(0,0,0,.8);
   --f-display:'Limelight',serif;--f-heading:'Josefin Sans',sans-serif;--f-body:'Josefin Sans',sans-serif;--f-label:'Josefin Sans',sans-serif;
@@ -11,7 +11,8 @@
   --r-sm:0;--r-md:0;--r-lg:0;--r-btn:0;--r-input:0;--r-chip:0;--r-check:0;--r-switch:0;--r-knob:0;
   --bw:1px;--shadow:none;--shadow-lg:0 0 32px rgba(201,162,75,.28);
 }
-body{background:radial-gradient(ellipse at 50% -10%,#1d1a12,#0C0C10 60%) fixed}
+html{background:var(--bg)}
+body{background:radial-gradient(ellipse at 50% -10%,#21407A,transparent 60%) top/100% 900px no-repeat}
 .ds-head h1{color:var(--accent)}
 .ds-head{text-align:center}.ds-head p.lede.lede{margin-inline:auto}
 .sec{clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px)}

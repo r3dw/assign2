@@ -24,8 +24,10 @@ header.hub{padding:clamp(2.5rem,8vw,6rem) clamp(1.25rem,5vw,4rem) clamp(1.5rem,4
 .t-wright{background:#f3ecdc;color:#2a1c13;border:3px solid #2a1c13}
 .t-wright h2{font-family:'Josefin Sans',sans-serif;font-weight:300;text-transform:uppercase;letter-spacing:.06em}
 .t-wright .body{border-top:3px solid #2a1c13;font-family:'Libre Baskerville',serif}
-.t-deco{background:#0c0c10;color:#efe4c8;border:1px solid #c9a24b;outline:1px solid #c9a24b;outline-offset:-7px;text-align:center}
+.t-deco{background:#0f1f3d;color:#efe4c8;border:1px solid #c9a24b;outline:1px solid #c9a24b;outline-offset:-7px;text-align:center}
 .t-deco .collage{padding:12px 12px 0}
+.t-deco .sw{align-self:stretch}
+.t-deco .sw i{box-shadow:inset 0 0 0 1px rgba(201,162,75,.55)}
 .t-deco h2{font-family:'Limelight',serif;color:#c9a24b;text-transform:uppercase;letter-spacing:.05em}
 .t-deco .body{font-family:'Josefin Sans',sans-serif;align-items:center}
 .t-deco .go{align-self:center}
@@ -52,7 +54,7 @@ footer.hubfoot{max-width:1500px;margin:0 auto;padding:1.5rem clamp(1.25rem,5vw,4
 .sys .arr{font-size:1.3rem}
 .s-wright{background:#f3ecdc;color:#2a1c13;border:3px solid #2a1c13;font-family:'Josefin Sans',sans-serif}
 .s-wright .aa{font-weight:300}
-.s-deco{background:#0c0c10;color:#efe4c8;border:1px solid #c9a24b;outline:1px solid #c9a24b;outline-offset:-5px;font-family:'Josefin Sans',sans-serif}
+.s-deco{background:#0f1f3d;color:#efe4c8;border:1px solid #c9a24b;outline:1px solid #c9a24b;outline-offset:-5px;font-family:'Josefin Sans',sans-serif}
 .s-deco .aa{font-family:'Limelight',serif;color:#c9a24b}
 .s-eames{background:#fffaf0;color:#2b2118;border-radius:22px;font-family:'Jost',sans-serif}
 .s-eames .aa{font-weight:700}
@@ -61,7 +63,7 @@ footer.hubfoot{max-width:1500px;margin:0 auto;padding:1.5rem clamp(1.25rem,5vw,4
 /* your site */
 .yoursite{max-width:1500px;margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem) 4rem}
 .yoursite h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 1rem;letter-spacing:-.01em}
-.ys-card{display:flex;align-items:center;gap:clamp(.9rem,2.5vw,1.5rem);padding:.9rem clamp(.9rem,2.5vw,1.5rem) .9rem .9rem;text-decoration:none;background:#0c0c10;color:#efe4c8;border:1px solid #c9a24b;outline:1px solid #c9a24b;outline-offset:-5px;font-family:'Josefin Sans',sans-serif;flex-wrap:wrap;transition:transform .2s ease}
+.ys-card{display:flex;align-items:center;gap:clamp(.9rem,2.5vw,1.5rem);padding:.9rem clamp(.9rem,2.5vw,1.5rem) .9rem .9rem;text-decoration:none;background:#0f1f3d;color:#efe4c8;border:1px solid #c9a24b;outline:1px solid #c9a24b;outline-offset:-5px;font-family:'Josefin Sans',sans-serif;flex-wrap:wrap;transition:transform .2s ease}
 .ys-card:hover,.ys-card:focus-visible{transform:translateY(-3px)}
 .ys-card img{width:64px;height:86px;object-fit:cover;border:1px solid #c9a24b}
 .ys-txt{flex:1 1 220px;display:flex;flex-direction:column;gap:.15rem}
