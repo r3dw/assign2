@@ -95,7 +95,7 @@ I took a real screenshot of the official page and read its text. Structure to fo
 - **Static export.** The project became a Next.js app with `output: 'export'`. The existing static pages moved into `public/` unchanged, and the new page is the route `/open-house`. No server, database or API.
 - **Plain CSS.** No Tailwind. The Deco tokens and components are copied from the Deco design system, so the site and the system match.
 - **Real content, honestly labeled.** Sites, neighborhoods (with counts), itineraries and events come from the official page. Only 16 of the 200+ sites are listed, each linking to its official page. The footer says it's a student redesign, not affiliated with the Chicago Architecture Center, and gives the date the content was copied.
-- **Deco tiles on every site card.** The Carbide and Carbon tower appears in the hero, and the Board of Trade photo appears only in that site's details dialog. All 16 site cards use generated Deco pattern tiles. I searched Wikimedia Commons for real photos of each site (search only, nothing downloaded): 8 of 16 had usable photos and 8 had none, so a half-photo grid would have looked uneven. We kept the consistent tiles instead.
+- **Deco tiles on every site card.** The hero shows the Chrysler Building elevator door, and the Board of Trade photo appears only in that site's details dialog. All 16 site cards use generated Deco pattern tiles. I searched Wikimedia Commons for real photos of each site (search only, nothing downloaded): 8 of 16 had usable photos and 8 had none, so a half-photo grid would have looked uneven. We kept the consistent tiles instead.
 - **Interactions (all faked, nothing saved):** filter sites by search text, neighborhood and day, "saved only" toggle, details dialog, save sites, itineraries and events into a "My OHC" panel with a live counter, newsletter form with error, sending and success states, and a mobile menu.
 
 ### Data verification (a mistake caught)
@@ -118,6 +118,14 @@ Tested at 320, 390, 768, 1024, 1440 and 1920px. Checks per size: no horizontal o
 | Favicon 404 on first load | Added an icon through Next's `app/icon.svg` |
 | Two failures in my own tests | One looked for the word "Saved", but the browser reports "SAVED" because the CSS uppercases it. The other raced against React removing the dialog title after the dialog closed. Fixed the tests, not the site |
 
+### Tweaks after review (images)
+Three image changes I asked for once I could see the page:
+- **Board of Trade card now uses a Deco tile.** It was the only site card with a real photo, which looked odd next to 15 pattern tiles. It now gets a ruby-and-gold sunburst like the others. I kept its photo in the details dialog, since that isn't part of the card grid.
+- **Hero image changed from the Carbide and Carbon tower to the Chrysler Building elevator door** (`img/deco-chrysler-elevator.jpg`, credit SiefkinDR, CC BY-SA 4.0). I wrote new alt text and a new caption, and checked the crop in screenshots at desktop and phone widths (at tablet width I confirmed the image loads at the same size). The photo is a tall portrait (960×1600), and the existing frame keeps the "EXPRESS" sign and the whole fan motif.
+- **Hub "Your site" thumbnail changed to match the hero.** The collage tile for the Art Deco board on the hub still starts with the Carbide and Carbon tower, since it belongs to the board, not the site. I regenerated the hub and confirmed the three mood boards and the credits page stayed byte-identical.
+
+All three changes were rechecked with the full 124-check suite and the dev-mode console check.
+
 ## 7. Bug reported after review: hydration error
 
 While reviewing in the dev server I got a React console error: *"A tree hydrated but some attributes of the server rendered HTML didn't match the client properties."*
@@ -127,9 +135,18 @@ While reviewing in the dev server I got a React console error: *"A tree hydrated
 - **Fix:** round the coordinates to two decimals in `DecoTile.js` (and `Hero.js`, which used the same math).
 - **Verification:** I added a dev-mode console check, confirmed it reproduces the exact error when the fix is removed, then confirmed it is clean with the fix in place at desktop and phone widths, including after using the filters, saving a card and opening My OHC. The full 124-check production suite still passes.
 
-## 8. Known limits and things to double-check
+## 8. Deployment: Vercel stopped updating
 
-- **Vercel clean URLs are untested.** I tested the exported `out/` folder locally with clean URLs, but not on Vercel itself. After deploying, confirm `/wright`, `/deco` and `/design-systems/deco` load without `.html`. If they don't, change the hub links to the `.html` form.
+After I pushed the hero and thumbnail changes, the Vercel site still showed the old images.
+
+- **Diagnosis:** The repo was fine. The commit contained both changes, local `main` matched GitHub, and a clean checkout of the commit built correctly with the new hero. Reading the live site's headers showed it had been built at 9:04 PM Central, before the last two commits (9:43 and 9:51 PM). It also still had the old Board of Trade photo card, so neither of those commits had become a live deployment.
+- **Cause:** An `"outputDirectory": "out"` line I had added to `vercel.json` while answering "will this structure work on Vercel?". I added it to be safe, without being able to test it on Vercel. The first deployment worked without it, so Vercel detects the static export on its own, and the override most likely broke the build (Vercel keeps serving the last successful deployment when a build fails). I never saw the build log, but removing the line fixed it.
+- **Fix:** Removed that line from `vercel.json`. The rest of the file (clean URLs and cache headers) is unchanged.
+- **Lesson:** An untested "just in case" setting on a platform I couldn't reach caused the failure, and I had called it harmless. I now treat deployment config changes as untested until a deploy confirms them.
+
+## 9. Known limits and things to double-check
+
+- **Vercel clean URLs (resolved).** Confirmed on the live site after deployment: `/`, `/wright`, `/deco`, `/eames`, `/credits`, `/design-systems/deco` and `/open-house` all load without `.html`.
 - **Tech stack.** The assignment PDF's tech stack lists Next.js and Tailwind. The mood boards and design systems are plain static HTML, and only the site is Next.js, with no Tailwind (per the instruction to use only HTML, CSS and Next.js). Check with your instructor whether this satisfies the requirement.
 - **Facts written from memory.** Please verify the Robie House facts (design 1908, completed 1910, UNESCO listing 2019, owned by the University of Chicago), the two Wright quotes' original sources, and the Chicago building dates on the Deco board.
 - **A blank-card artifact never fully confirmed.** Some Eames photo cards showed blank in an early screenshot. The files were verified intact and served correctly, but I did not see the lower half of that page rendered in a later screenshot.
@@ -137,7 +154,7 @@ While reviewing in the dev server I got a React console error: *"A tree hydrated
 - **Demo behavior.** Saved items, the newsletter form and filters reset on reload and send nothing anywhere.
 - **Content freshness.** Festival details were copied on October 12, 2026 and may change.
 
-## 9. How the agent was used (draft, edit in your own words)
+## 10. How the agent was used (draft, edit in your own words)
 
 **What I directed:**
 - The three styles and their focus (Wright and the Robie House, Art Deco, Eames).
@@ -157,5 +174,6 @@ While reviewing in the dev server I got a React console error: *"A tree hydrated
 - Misread the "Saturday only" labels on the official site, caught by checking the page structure.
 - Ran tests only on the production build, which missed the hydration error. I caught it in dev and the agent fixed it and added a dev-mode check.
 - Initial Eames contrast values didn't meet accessibility thresholds, caught by computing them.
+- Added an untested `outputDirectory` setting to `vercel.json` and called it harmless. It most likely broke Vercel's builds, so the site stopped updating until the line was removed (section 8).
 
 **Where to add your own decisions:** why you chose Art Deco for the site, what people see first on each page, how users know what's clickable, and what each state (empty, loading, error, success) tells them.
