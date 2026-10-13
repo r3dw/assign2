@@ -1,6 +1,5 @@
 {
   "cleanUrls": true,
-  "outputDirectory": "out",
   "headers": [
     {
       "source": "/img/(.*)",
